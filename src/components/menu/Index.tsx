@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import { Container, Button } from "@mui/material"
 import IconDash from "@mui/icons-material/dashboard"
 import IconSetting from "@mui/icons-material/ManageAccounts"
@@ -11,21 +12,26 @@ export default function MenuTop() {
             <Container disableGutters={false} fixed={false} sx={{backgroundColor:'#06283D', margin: 0, width:'180px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'left', alignContent: 'left',  alignItems: 'left', alignSelf: 'flex-start', color: 'white'}}>
 
                 <img src={Logo} style={{width:"100%", margin: "20px 0px"}} alt=""/>
+                <Link to={'/panel'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0'}}>
+                    <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                        <IconDash/>
+                        <span style={{ margin: '0 5px' }}>Painel</span>
+                    </Button>
+                </Link>
 
-                <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                    <IconDash/>
-                    <span style={{ margin: '0 5px' }}>Painel</span>
-                </Button>
+                <Link to={'/request'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0'}}>
+                    <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                        <IconPackages/>
+                        <span style={{ margin: '0 5px' }}>Pedido</span>
+                    </Button>
+                </Link>
 
-                <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                    <IconPackages/>
-                    <span style={{ margin: '0 5px' }}>Pedido</span>
-                </Button>
-
-                <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                    <IconSetting/>
-                    <span style={{ margin: '0 5px' }}>Perfil</span>
-                </Button>
+                <Link to={'/profile'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0',}}>
+                    <Button sx={{color: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                        <IconSetting/>
+                        <span style={{ margin: '0 5px' }}>Perfil</span>
+                    </Button>
+                </Link>
 
             </Container>
             )
