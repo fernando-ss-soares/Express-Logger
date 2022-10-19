@@ -1,11 +1,9 @@
 import "react";
-import { Box } from "@mui/material"
-
 import Menu from "../../components/menu/Index";
+import WelcomeCard from "../../components/welcomeCard/Index"
+import PanelCard from "../../components/panelCard/Index";
 
 export default function Painel() {
-
-    const nomeCompleto = "Fernando Soares"
 
     return (
             <div style={{ display: 'flex', flexDirection: 'row'}}>
@@ -14,11 +12,9 @@ export default function Painel() {
 
                      <div id="panel" style={{ width: '80%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
 
-                         <Box sx={{ width: '100%', height: '20%', backgroundColor: '#EEEEEE', borderRadius: '8px', margin: '20px 10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                         <WelcomeCard nomeCompleto={'Fernando Santos Soares'}/>
 
-                             <h1 style={{ margin: '10px', fontWeight: 500 }}>Olá <span style={{ fontWeight: 700, color: '#06283D', }}>{nomeCompleto}</span>, estamos felizes em ter você conosco! 😊</h1>
-
-                        </Box>
+                        <PanelCard/>
 
                      </div>
                  </div>
