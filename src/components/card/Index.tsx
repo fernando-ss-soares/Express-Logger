@@ -13,7 +13,7 @@ interface CardAlert {
 export default function CardAlert( {title, number, backgroundColor1, backgroundColor2, textColor} : CardAlert) {
 
     return (
-            <Card sx={{ minWidth: 275, display: 'flex', flexDirection: 'row', justifyContent: 'center', verticalAlign: 'center', backgroundColor: `${backgroundColor1}`, color: `${textColor}`, borderRadius: '10px'}}>
+            <Card sx={{ maxWidth: 375, minHeight: 100, display: 'flex', flexDirection: 'row', justifyContent: 'center', verticalAlign: 'center', backgroundColor: `${backgroundColor1}`, color: `${textColor}`, borderRadius: '10px'}}>
 
                 <CardContent sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '16px'}}>
 

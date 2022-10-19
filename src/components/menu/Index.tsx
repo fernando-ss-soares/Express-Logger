@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { Container, Button } from "@mui/material"
-import IconDash from "@mui/icons-material/dashboard"
+import IconDash from "@mui/icons-material/Dashboard"
 import IconSetting from "@mui/icons-material/ManageAccounts"
 import IconPackages from "@mui/icons-material/Inventory"
 import Logo from "../../assets/logo.png"

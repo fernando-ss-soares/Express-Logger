@@ -52,21 +52,39 @@ export default function Pedido() {
         ];
 
     return (
-            <div style={{ display: 'flex', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#EAEAEA'}}>
                 <Menu/>
 
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 
                     <Title title={'Pesquisa de Pedidos'} subtitle={'A tela de Pesquisa de Pedidos é uma geral para visualização de produtos.'}/>
 
-                    <Box sx={{ minHeight: 640, width: '80%' }}>
-                        <DataGrid
-                            rows={rows}
-                            columns={columns}
-                            pageSize={10}
-                            rowsPerPageOptions={[5]}
-                        />
-                    </Box>
+                    <Accordion sx={{ width: '90%' }} defaultExpanded={true}>
+                        
+                        <AccordionSummary
+                          expandIcon={<ExpandMore/>}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                            <Typography>Filtros de Pesquisa</Typography>
+                        </AccordionSummary>
+                        
+                        <AccordionDetails sx={{ width: '100%', height: '300px' }}>
+                            
+                            <Box sx={{ width: '98%', height: '100%' }}>
+                                <DataGrid
+                                    rows={rows}
+                                    columns={columns}
+                                    pageSize={10}
+                                    rowsPerPageOptions={[5]}
+                                    sx={{ padding: 0 }}
+                                />
+                            </Box>
+
+                        </AccordionDetails>
+
+                    </Accordion>
+
                 </div>
 
             </div>
