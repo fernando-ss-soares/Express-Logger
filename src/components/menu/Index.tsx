@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Container, Button, Tooltip, Divider} from "@mui/material"
 import IconDash from "@mui/icons-material/Dashboard"
 import IconSetting from "@mui/icons-material/ManageAccounts"
-import IconPackages from "@mui/icons-material/Inventory"
+import IconPackages from "@mui/icons-material/Unarchive"
 import IconLogout from "@mui/icons-material/Logout"
 import Logo from "@mui/icons-material/LocalShipping"
 
