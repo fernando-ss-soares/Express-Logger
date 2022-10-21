@@ -4,7 +4,7 @@ import Menu from "../../components/menu/Index";
 
 export default function Perfil() {
     return (
-            <div style={{ display: 'flex', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#EAEAEA'}}>
                 <Menu/>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 

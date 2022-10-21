@@ -6,7 +6,7 @@ import PanelCard from "../../components/panelCard/Index";
 export default function Painel() {
 
     return (
-            <div style={{ display: 'flex', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#EAEAEA'}}>
                 <Menu/>
                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 

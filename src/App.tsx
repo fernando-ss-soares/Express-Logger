@@ -18,6 +18,7 @@ export default function App() {
             <Route path="/checkout" element={<Checkout/>}/>
             <Route path="/request" element={<Request/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="*" element={<Login/>}/>
         </Routes>
     </BrowserRouter>
   )

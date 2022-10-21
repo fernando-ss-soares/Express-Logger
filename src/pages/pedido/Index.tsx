@@ -1,9 +1,10 @@
 import "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { ExpandMore } from "@mui/icons-material"
-import { Box, Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material"
+import { Box, Accordion, AccordionSummary, AccordionDetails, Typography, Button } from "@mui/material"
 import Menu from "../../components/menu/Index";
 import Title from "../../components/title/Index";
+import Input from "../../components/input/Index";
 
 export default function Pedido() {
 
@@ -70,7 +71,51 @@ export default function Pedido() {
                         </AccordionSummary>
                         
                         <AccordionDetails sx={{ width: '100%', height: '300px' }}>
-                            
+
+                            <Box sx={{ width: '98%', height: '70%' }}>
+
+                                <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '90%', gap: 2}}>
+
+                                    <Input label={'ID do Pacote'}/>
+
+                                    <Input label={'Nome do Produto'}/>
+
+                                    <Input label={'Descrição do Produto'}/>
+
+                                    <Input label={'Data de Entrega'}/>
+
+                                </Box>
+
+                            </Box>
+
+                            <Box sx={{ width: '98%', height: '30%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', alignItems: 'center', }}>
+
+                                <Box>
+
+                                    <Button variant="contained">
+                                        Pesquisar
+                                    </Button>
+
+                                </Box>
+
+                            </Box>
+
+                        </AccordionDetails>
+
+                    </Accordion>
+
+                    <Accordion sx={{ width: '90%' }} defaultExpanded={false}>
+
+                        <AccordionSummary
+                            expandIcon={<ExpandMore/>}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                            >
+                            <Typography>Resultado de Pesquisa</Typography>
+                        </AccordionSummary>
+
+                        <AccordionDetails sx={{ width: '100%', height: '300px' }}>
+
                             <Box sx={{ width: '98%', height: '100%' }}>
                                 <DataGrid
                                     rows={rows}
