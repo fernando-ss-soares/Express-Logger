@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react"
 
 import Login from "./pages/login/Index";
 import Payment from "./pages/pagamento/Index";
