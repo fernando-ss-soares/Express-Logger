@@ -1,26 +1,52 @@
-import "react";
-import { Container, Box } from "@mui/material";
-import Logo from "@mui/icons-material/LocalShipping"
-import Title from "../../components/title/Index";
-import Input from "../../components/input/Index";
+import { useNavigate } from "react-router-dom"
+import Logo from "../../assets/logo1.png"
+import { Container } from "@mui/material"
+import { useState } from "react"
 
 export default function Login() {
+
+    const Login : any = {
+        email: '',
+        password: ''
+    }
+
+    const Navigate : any = useNavigate();
+    
+    const [login, setlogin] = useState<any>(Login)
+
+    function onChange (event : any) {
+
+        const { name, value } = event.target
+        
+        setlogin({... login, [name]:value })
+    }
+
+    function onSubmit (event : any ) {
+        event.preventDefault();
+        console.log("teste")
+
+        Navigate({ to: "panel" })
+
+    }
+
     return (
         
-        <Container sx={{ display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', textAlign: 'center', minHeight: '100vh'}}>
+        <div style={{ display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white'}}>
     
-            <main className="form-signin w-100 m-auto">
-            <form>
-                <img className="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
+            <Container className="form-signin w-100 m-auto" style={{ backgroundColor: '#06283D' }}>
+            <form onSubmit={onSubmit} >
+                
+                <img src={Logo} alt="" width={'50%'}/>
+                
                 <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
             
                 <div className="form-floating my-1">
-                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
+                <input name="email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com"/>
                 <label htmlFor="floatingInput">Email address</label>
                 </div>
                 
                 <div className="form-floating my-1">
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
+                <input name="password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password"/>
                 <label htmlFor="floatingPassword">Password</label>
                 </div>
             
@@ -32,8 +58,8 @@ export default function Login() {
                 <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
                 <p className="mt-5 mb-3 text-muted">© 2017–2022</p>
             </form>
-            </main>
+            </Container>
         
-        </Container>
+        </div>
     )
 }
