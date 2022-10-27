@@ -10,7 +10,7 @@ export default function Login() {
         password: ''
     }
 
-    const Navigate : any = useNavigate();
+    let Navigate = useNavigate();
     
     const [login, setlogin] = useState<any>(Login)
 
@@ -25,7 +25,7 @@ export default function Login() {
         event.preventDefault();
         console.log("teste")
 
-        Navigate({ to: "panel" })
+        Navigate('/panel')
 
     }
 
@@ -38,24 +38,24 @@ export default function Login() {
                 
                 <img src={Logo} alt="" width={'50%'}/>
                 
-                <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+                <h1 className="h3 mb-3 fw-normal">Por favor faça o login</h1>
             
                 <div className="form-floating my-1">
                 <input name="email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com"/>
-                <label htmlFor="floatingInput">Email address</label>
+                <label style={{ color: 'black' }} htmlFor="floatingInput">Email address</label>
                 </div>
                 
                 <div className="form-floating my-1">
                 <input name="password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password"/>
-                <label htmlFor="floatingPassword">Password</label>
+                <label style={{ color: 'black' }} htmlFor="floatingPassword">Password</label>
                 </div>
             
                 <div className="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me"/> Remember me
+                    <input type="checkbox" value="remember-me"/> Lembrar me
                 </label>
                 </div>
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Acessar</button>
                 <p className="mt-5 mb-3 text-muted">© 2017–2022</p>
             </form>
             </Container>

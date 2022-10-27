@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect } from "react"
 
 import Login from "./pages/login/Index";
 import Payment from "./pages/pagamento/Index";
 import Checkout from "./pages/carrinho/Index";
 import Panel from "./pages/painel/Index";
 import Request from "./pages/pedido/Index";
+import CreateRequest from "./pages/pedido/criar/Index"
 import Profile from "./pages/perfil/Index";
 
 export default function App() {
@@ -18,6 +18,7 @@ export default function App() {
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
             <Route path="/request" element={<Request/>}/>
+            <Route path="/createrequest" element={<CreateRequest/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="*" element={<Login/>}/>
         </Routes>

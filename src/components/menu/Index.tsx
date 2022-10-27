@@ -1,19 +1,19 @@
 import "react";
 import { Link } from "react-router-dom"
+import Logo from "../../assets/logo2.png"
 import { Container, Button, Tooltip, Divider} from "@mui/material"
 import IconDash from "@mui/icons-material/Dashboard"
 import IconSetting from "@mui/icons-material/ManageAccounts"
 import IconPackages from "@mui/icons-material/Unarchive"
 import IconLogout from "@mui/icons-material/Logout"
-import Logo from "@mui/icons-material/LocalShipping"
 
 export default function MenuTop() {
 
     return (
-            <Container disableGutters={false} fixed={false} sx={{backgroundColor:'#06283D', margin: 0, width:'80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'left',  alignItems: 'left', alignSelf: 'flex-start', color: 'white'}}>
+            <Container disableGutters={false} fixed={true} sx={{backgroundColor:'#06283D', marginRight: 5, width:'80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'left',  alignItems: 'left', alignSelf: 'flex-start', color: 'white'}}>
                 
                 <div>
-                    <Logo sx={{width:"100%", margin: "20px 0px"}}/>
+                    <img style={{width: '100%', margin: "20px 0px"}} src={Logo} alt={'Logo'}/>
 
                     <Divider sx={{ borderColor: 'white', color: 'white', height: '1', width: '100%' }}>
 
