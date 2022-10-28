@@ -18,9 +18,14 @@ export default function NewCardPanel({ nomeCompleto }: NewCardPanel) {
                 <div className="d-flex flex-column align-items-start gap-2">
                     <h3 className="fw-bold">Redirecione seu pacote na melhor empresa de redirecionamento do mercado</h3>
                     <p className="text-muted">Empresa referência no processo de <b>Dropshipping Internacional</b> de produtos eletroeletrônico e indicado ao prêmio Ibest.</p>
-                    <Link to={'/createrequest'}>
-                        <button className="btn btn-primary btn-lg">Solicitar Pedido</button>
-                    </Link>
+                    <div className="d-flex flex-row gap-2">
+                        <Link to={'/createrequest'}>
+                            <button className="btn btn-primary btn-lg">Solicitar Pedido</button>
+                        </Link>
+                        <Link to={'/request'}>
+                            <button className="btn btn-primary btn-lg">Pesquisa Pedido</button>
+                        </Link>
+                    </div>
                 </div>
                 
                 <div className="row row-cols-1 row-cols-sm-2 g-4">

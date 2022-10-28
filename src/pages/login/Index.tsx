@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import Logo from "../../assets/logo1.png"
 import { Container } from "@mui/material"
 import { useState } from "react"
@@ -33,8 +33,8 @@ export default function Login() {
         
         <div style={{ display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white'}}>
     
-            <Container className="form-signin w-100 m-auto" style={{ backgroundColor: '#06283D' }}>
-            <form onSubmit={onSubmit} >
+            <Container className="form-signin w-100 m-auto gap-2" style={{ backgroundColor: '#06283D' }}>
+            <form onSubmit={onSubmit}>
                 
                 <img src={Logo} alt="" width={'50%'}/>
                 
@@ -55,8 +55,10 @@ export default function Login() {
                     <input type="checkbox" value="remember-me"/> Lembrar me
                 </label>
                 </div>
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Acessar</button>
-                <p className="mt-5 mb-3 text-muted">© 2017–2022</p>
+                <button className="w-100 btn btn-lg btn-primary my-1" type="submit">Acessar</button>
+                <Link to={'/register'}>
+                    <button className="w-100 btn btn-lg btn-primary my-1">Cadastrar-se</button>
+                </Link>
             </form>
             </Container>
         

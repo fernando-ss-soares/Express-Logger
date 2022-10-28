@@ -7,6 +7,7 @@ import Panel from "./pages/painel/Index";
 import Request from "./pages/pedido/Index";
 import CreateRequest from "./pages/pedido/criar/Index"
 import Profile from "./pages/perfil/Index";
+import Register from "./pages/cadastro/Index"
 
 export default function App() {
 
@@ -14,6 +15,7 @@ export default function App() {
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
             <Route path="/panel" element={<Panel/>}/>
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/checkout" element={<Checkout/>}/>

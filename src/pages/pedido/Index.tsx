@@ -9,8 +9,8 @@ export default function Pedido() {
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 
-                <Container>
-                    <h3 className="pb-2 border-bottom">Pesquisa de Pedido</h3>
+                <div className="container d-flex flex-column px-4 py-5">
+                    <h3 className="pb-2 border-bottom">Pesquisa Pedido</h3>
                     <div className="mb-3">
                         <label htmlFor="formGroupExampleInput" className="form-label">Example label</label>
                         <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Example input placeholder"/>
@@ -19,16 +19,17 @@ export default function Pedido() {
                         <label htmlFor="formGroupExampleInput2" className="form-label">Another label</label>
                         <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder"/>
                     </div>
-                </Container>
+                </div>
 
-                <Container>
+                <div className="container d-flex flex-column px-4 py-3">
                     <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
+                                <th scope="col">Produto</th>
                                 <th scope="col">Last</th>
                                 <th scope="col">Handle</th>
+                                <th scope="col">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,7 +52,7 @@ export default function Pedido() {
                             </tr>
                         </tbody>
                     </table>
-                </Container>
+                </div>
 
             </div>
 

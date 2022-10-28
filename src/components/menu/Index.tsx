@@ -28,7 +28,7 @@ export default function MenuTop() {
                     </Tooltip>
 
 
-                    <Tooltip title="Pacotes" placement="right">
+                    <Tooltip title="Pedidos" placement="right">
                         <Link to={'/request'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                             <Button sx={{color: 'white'}}>
                                 <IconPackages/>

@@ -1,9 +1,33 @@
-import Menu from "../../../components/menu/Index";
-export default function CriarPedido() {
+import { useNavigate } from "react-router-dom"
+import Logo from "../../assets/logo1.png"
+import { Container } from "@mui/material"
+import { useState } from "react"
+
+export default function CadastroUsuario() {
+
+    const Register: any = {
+        email: '',
+        password: ''
+    }
+
+    let Navigate = useNavigate();
+
+    const [register, setRegister] = useState<any>(Register)
+
+    function onChange(event: any) {
+
+        const { name, value } = event.target
+
+        setRegister({ ...register, [name]: value })
+    }
+
+    function onSubmit(event: any) {
+        event.preventDefault();
+    }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#EAEAEA' }}>
-            <Menu />
+
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white' }}>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 
@@ -22,22 +46,22 @@ export default function CriarPedido() {
 
                             <div className="col-sm-6">
                                 <label htmlFor="lastName" className="form-label">Status</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="" value={"Aguardando Recebimento"} disabled readOnly/>
+                                <input type="text" className="form-control" id="lastName" placeholder="" value={"Aguardando Recebimento"} disabled readOnly />
                                 <div className="invalid-feedback">
                                     Valid last name is required.
                                 </div>
                             </div>
 
                             <div className="col-12">
-                              <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrição Produto</label>
-                              <textarea className="form-control" id="exampleFormControlTextarea1" rows={2}></textarea>
+                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrição Produto</label>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows={2}></textarea>
                             </div>
 
                             <div className="col-12">
                                 <label htmlFor="username" className="form-label">Código do Pedido</label>
                                 <div className="input-group has-validation">
                                     <span className="input-group-text">@</span>
-                                    <input type="text" className="form-control" id="username" placeholder="P00-000000000" disabled readOnly/>
+                                    <input type="text" className="form-control" id="username" placeholder="P00-000000000" disabled readOnly />
                                     <div className="invalid-feedback">
                                         Your username is required.
                                     </div>
@@ -69,7 +93,7 @@ export default function CriarPedido() {
 
                         <hr className="my-4" />
 
-                        <button className="w-100 btn btn-primary btn-lg" type="submit">Cadastrar Pedido</button>
+                        <button className="w-100 btn btn-primary btn-lg" type="submit">Cadastrar</button>
                     </form>
                 </div>
 
