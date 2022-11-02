@@ -2,6 +2,7 @@ import { useNavigate, Link } from "react-router-dom"
 import Logo from "../../assets/logo1.png"
 import { Container } from "@mui/material"
 import { useState } from "react"
+import axios from "axios"
 
 export default function Login() {
 
@@ -21,10 +22,8 @@ export default function Login() {
         setlogin({... login, [name]:value })
     }
 
-    function onSubmit (event : any ) {
+    function onSubmit (event : any) {
         event.preventDefault();
-        console.log("teste")
-
         Navigate('/panel')
 
     }

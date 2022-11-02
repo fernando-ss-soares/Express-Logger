@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom"
-import Logo from "../../assets/logo1.png"
-import { Container } from "@mui/material"
+import axios from "axios"
 import { useState } from "react"
 
 export default function CadastroUsuario() {
 
     const Register: any = {
-        email: '',
-        password: ''
+        user_name: '',
+        user_lastname: '',
+        user_cpf: '',
+        user_endereco: '',
+        user_email: '',
+        user_password: ''
     }
 
     let Navigate = useNavigate();
@@ -23,67 +26,81 @@ export default function CadastroUsuario() {
 
     function onSubmit(event: any) {
         event.preventDefault();
+        
+        axios.post('http://plw3477.vps-kinghost.net/user', register)
+        .then((data) => {
+            console.log(data.data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            console.log('Terminou')
+        })
+
     }
 
     return (
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'left', minHeight: '100vh', backgroundColor: '#06283D', color: 'white' }}>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 
 
                 <div className="container py-5 col-md-7 col-lg-8">
                     <h3 className="pb-2 border-bottom">Solicitar Pedido</h3>
-                    <form className="needs-validation" >
+                    <form className="needs-validation" onSubmit={onSubmit}>
                         <div className="row g-3">
+                            
+                            <h4 className="py-2">Dados Pessoais</h4>
+                            
                             <div className="col-sm-6">
-                                <label htmlFor="firstName" className="form-label">Nome Produto</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="" />
+                                <label htmlFor="firstName" className="form-label">Nome</label>
+                                <input type="text" className="form-control" id="user_name" name="user_name" placeholder="" onChange={onChange}/>
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                                 </div>
                             </div>
 
                             <div className="col-sm-6">
-                                <label htmlFor="lastName" className="form-label">Status</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="" value={"Aguardando Recebimento"} disabled readOnly />
+                                <label htmlFor="lastName" className="form-label">Sobrenome</label>
+                                <input type="text" className="form-control" id="user_lastname" name="user_lastname" placeholder="" onChange={onChange}/>
                                 <div className="invalid-feedback">
                                     Valid last name is required.
                                 </div>
                             </div>
 
                             <div className="col-12">
-                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrição Produto</label>
-                                <textarea className="form-control" id="exampleFormControlTextarea1" rows={2}></textarea>
-                            </div>
-
-                            <div className="col-12">
-                                <label htmlFor="username" className="form-label">Código do Pedido</label>
-                                <div className="input-group has-validation">
-                                    <span className="input-group-text">@</span>
-                                    <input type="text" className="form-control" id="username" placeholder="P00-000000000" disabled readOnly />
-                                    <div className="invalid-feedback">
-                                        Your username is required.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-12">
-                                <label htmlFor="address" className="form-label">Endereço</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                <label htmlFor="email" className="form-label">CPF</label>
+                                <input type="number" className="form-control" id="user_cpf" name="user_cpf" onChange={onChange}/>
                                 <div className="invalid-feedback">
-                                    Please enter your shipping address.
+                                    Please enter a valid email address htmlFor shipping updates.
                                 </div>
                             </div>
 
                             <div className="col-12">
-                                <label htmlFor="email" className="form-label">Email <span className="text-muted">(Optional)</span></label>
-                                <input type="email" className="form-control" id="email" placeholder="you@example.com" />
+                                <label htmlFor="email" className="form-label">Email</label>
+                                <input type="email" className="form-control" id="user_email" name="user_email" placeholder="you@example.com" onChange={onChange}/>
+                                <div className="invalid-feedback">
+                                    Please enter a valid email address htmlFor shipping updates.
+                                </div>
+                            </div>
+
+                            <div className="col-12">
+                                <label htmlFor="email" className="form-label">Senha</label>
+                                <input type="password" className="form-control" id="user_password" name="user_password" onChange={onChange}/>
+                                <div className="invalid-feedback">
+                                    Please enter a valid email address htmlFor shipping updates.
+                                </div>
+                            </div>
+
+                            <hr className="my-4" />
+
+                            <h4 className="py-2">Endereço</h4>
+                            
+                            <div className="col-12">
+                                <label htmlFor="email" className="form-label">Endereço Completo</label>
+                                <input type="text" className="form-control" id="user_endereco" name="user_endereco" onChange={onChange}/>
                                 <div className="invalid-feedback">
                                     Please enter a valid email address htmlFor shipping updates.
                                 </div>
