@@ -35,7 +35,7 @@ export default function Login() {
             <Container className="form-signin w-100 m-auto gap-2" style={{ backgroundColor: '#06283D' }}>
             <form onSubmit={onSubmit}>
                 
-                <img src={Logo} alt="" width={'50%'}/>
+                <img src={Logo} alt="" width={'25%'}/>
                 
                 <h1 className="h3 mb-3 fw-normal">Por favor faça o login</h1>
             
