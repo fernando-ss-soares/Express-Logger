@@ -8,6 +8,7 @@ import Request from "./pages/pedido/Index";
 import CreateRequest from "./pages/pedido/criar/Index"
 import Profile from "./pages/perfil/Index";
 import Register from "./pages/cadastro/Index"
+import ErrorPage from "./pages/error/Index";
 
 export default function App() {
 
@@ -22,6 +23,11 @@ export default function App() {
             <Route path="/request" element={<Request/>}/>
             <Route path="/createrequest" element={<CreateRequest/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            
+            <Route path="/error/" element={<ErrorPage/>}>
+              <Route path=":id" element={<ErrorPage/>}/>  
+            </Route>
+            
             <Route path="*" element={<Login/>}/>
         </Routes>
     </BrowserRouter>

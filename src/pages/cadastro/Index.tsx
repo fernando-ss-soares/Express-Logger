@@ -8,14 +8,14 @@ export default function CadastroUsuario() {
         user_name: '',
         user_lastname: '',
         user_cpf: '',
-        user_endereco: '',
+        user_address: '',
         user_email: '',
         user_password: ''
     }
 
     let Navigate = useNavigate();
 
-    const [register, setRegister] = useState<any>(Register)
+    const [register, setRegister] = useState<object>(Register)
 
     function onChange(event: any) {
 
@@ -26,16 +26,13 @@ export default function CadastroUsuario() {
 
     function onSubmit(event: any) {
         event.preventDefault();
-        
-        axios.post('http://plw3477.vps-kinghost.net/user', register)
-        .then((data) => {
-            console.log(data.data)
+
+        axios.post('https://express-back-end-1.herokuapp.com/user', register)
+        .then(() => {
+            Navigate(`/login`)
         })
         .catch((error) => {
-            console.log(error)
-        })
-        .finally(() => {
-            console.log('Terminou')
+            Navigate(`/error/${error}\n${error.response.data.message}`)
         })
 
     }
@@ -56,7 +53,7 @@ export default function CadastroUsuario() {
                             
                             <div className="col-sm-6">
                                 <label htmlFor="firstName" className="form-label">Nome</label>
-                                <input type="text" className="form-control" id="user_name" name="user_name" placeholder="" onChange={onChange}/>
+                                <input type="text" className="form-control" id="user_name" name="user_name" placeholder="" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                                 </div>
@@ -64,7 +61,7 @@ export default function CadastroUsuario() {
 
                             <div className="col-sm-6">
                                 <label htmlFor="lastName" className="form-label">Sobrenome</label>
-                                <input type="text" className="form-control" id="user_lastname" name="user_lastname" placeholder="" onChange={onChange}/>
+                                <input type="text" className="form-control" id="user_lastname" name="user_lastname" placeholder="" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Valid last name is required.
                                 </div>
@@ -72,7 +69,7 @@ export default function CadastroUsuario() {
 
                             <div className="col-12">
                                 <label htmlFor="email" className="form-label">CPF</label>
-                                <input type="number" className="form-control" id="user_cpf" name="user_cpf" onChange={onChange}/>
+                                <input type="number" className="form-control" id="user_cpf" name="user_cpf" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Please enter a valid email address htmlFor shipping updates.
                                 </div>
@@ -80,7 +77,7 @@ export default function CadastroUsuario() {
 
                             <div className="col-12">
                                 <label htmlFor="email" className="form-label">Email</label>
-                                <input type="email" className="form-control" id="user_email" name="user_email" placeholder="you@example.com" onChange={onChange}/>
+                                <input type="email" className="form-control" id="user_email" name="user_email" placeholder="you@example.com" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Please enter a valid email address htmlFor shipping updates.
                                 </div>
@@ -88,7 +85,7 @@ export default function CadastroUsuario() {
 
                             <div className="col-12">
                                 <label htmlFor="email" className="form-label">Senha</label>
-                                <input type="password" className="form-control" id="user_password" name="user_password" onChange={onChange}/>
+                                <input type="password" className="form-control" id="user_password" name="user_password" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Please enter a valid email address htmlFor shipping updates.
                                 </div>
@@ -100,7 +97,7 @@ export default function CadastroUsuario() {
                             
                             <div className="col-12">
                                 <label htmlFor="email" className="form-label">Endereço Completo</label>
-                                <input type="text" className="form-control" id="user_endereco" name="user_endereco" onChange={onChange}/>
+                                <input type="text" className="form-control" id="user_endereco" name="user_address" onChange={onChange} required/>
                                 <div className="invalid-feedback">
                                     Please enter a valid email address htmlFor shipping updates.
                                 </div>

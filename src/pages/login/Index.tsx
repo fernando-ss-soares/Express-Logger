@@ -7,8 +7,8 @@ import axios from "axios"
 export default function Login() {
 
     const Login : any = {
-        email: '',
-        password: ''
+        user_email: '',
+        user_password: ''
     }
 
     let Navigate = useNavigate();
@@ -24,7 +24,29 @@ export default function Login() {
 
     function onSubmit (event : any) {
         event.preventDefault();
-        Navigate('/panel')
+
+        let params = login
+        
+        axios.get('https://express-back-end-1.herokuapp.com/user', {
+            params: {
+                user_email: params.user_email,
+                user_password: params.user_password
+            }
+        })
+        .then((response) => {
+            
+            if(response) {
+                
+                localStorage.setItem('user_name', `${response.data.user_name} ${response.data.user_lastname}`)
+                localStorage.setItem('user_email', response.data.user_email)
+                localStorage.setItem('user_password', response.data.user_password)
+    
+                Navigate(`/panel`)
+            } 
+        })
+        .catch((error) => {
+            Navigate(`/error/${error}\n${error.response.data.message}`)
+        })
 
     }
 
@@ -40,12 +62,12 @@ export default function Login() {
                 <h1 className="h3 mb-3 fw-normal">Por favor faça o login</h1>
             
                 <div className="form-floating my-1">
-                <input name="email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com"/>
+                <input name="user_email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com"/>
                 <label style={{ color: 'black' }} htmlFor="floatingInput">Email address</label>
                 </div>
                 
                 <div className="form-floating my-1">
-                <input name="password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password"/>
+                <input name="user_password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password"/>
                 <label style={{ color: 'black' }} htmlFor="floatingPassword">Password</label>
                 </div>
             

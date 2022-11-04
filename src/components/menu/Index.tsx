@@ -9,6 +9,10 @@ import IconLogout from "@mui/icons-material/Logout"
 
 export default function MenuTop() {
 
+    function clearUser() {
+        localStorage.clear()
+    }
+
     return (
             <Container disableGutters={false} fixed={true} sx={{backgroundColor:'#06283D', marginRight: 5, width:'80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'left',  alignItems: 'left', alignSelf: 'flex-start', color: 'white'}}>
                 
@@ -52,8 +56,8 @@ export default function MenuTop() {
                         </Link>
                     </Tooltip>
 
-                    <Tooltip title="Perfil" placement="right">
-                        <Link to={'/'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                    <Tooltip title="Sair" placement="right">
+                        <Link onClick={clearUser} to={'/'} style={{color: '#FFFFFF', textDecoration: 'none', margin: '10px 0', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                             <Button sx={{color: 'white'}}>
                                 <IconLogout/>
                             </Button>
