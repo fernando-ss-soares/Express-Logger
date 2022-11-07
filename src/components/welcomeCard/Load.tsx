@@ -4,12 +4,14 @@ import IconSegure from "@mui/icons-material/VpnLock"
 import IconShipping from "@mui/icons-material/LocalShipping"
 import IconOrder from "@mui/icons-material/Web"
 import IconSupport from "@mui/icons-material/Groups"
+import { useState } from "react"
 
 interface NewCardPanel {
     nomeCompleto: String
 }
 
 export default function Load({ nomeCompleto }: NewCardPanel) {
+    
     return (
         <div className="d-flex flex-column container px-4 py-5 w-100">
 
@@ -63,6 +65,7 @@ export default function Load({ nomeCompleto }: NewCardPanel) {
                         <h4 className="fw-semibold mb-0">Suporte</h4>
                         <p className="text-muted">Acesso 24h ao suporte e atendimento remoto.</p>
                     </div>
+
                 </div>
 
             </div>

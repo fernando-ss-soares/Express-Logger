@@ -1,7 +1,10 @@
 import Menu from "../../components/menu/Index";
 import NewCardPanel from "../../components/welcomeCard/Index";
+import Auth from "../../utils/Auth";
 
 export default function Painel() {
+
+    Auth()
 
     return (
             <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#EAEAEA'}}>

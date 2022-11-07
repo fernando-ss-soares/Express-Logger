@@ -1,88 +1,139 @@
 import { useNavigate, Link } from "react-router-dom"
-import Logo from "../../assets/logo1.png"
+import toast, { Toaster } from 'react-hot-toast';
 import { Container } from "@mui/material"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
+
+import Logo from "../../assets/logo1.png"
 
 export default function Login() {
 
-    const Login : any = {
+    const notifySucess = () => toast.success('Login efetuado com sucesso!', {
+        "duration": 4000,
+        "position": "top-right"
+    });
+
+    const notifyError = () => toast.error('Usuário ou senha incorreta!', {
+        "duration": 4000,
+        "position": "top-right"
+    });
+
+    const Login: any = {
         user_email: '',
         user_password: ''
     }
 
     let Navigate = useNavigate();
-    
-    const [login, setlogin] = useState<any>(Login)
 
-    function onChange (event : any) {
+    useEffect(() => {
+        let isLogado = localStorage.getItem('user_remenber');
+        let isUsuario = localStorage.getItem('user_email');
+        let isSenha = localStorage.getItem('user_password');
 
-        const { name, value } = event.target
-        
-        setlogin({... login, [name]:value })
+        if (isLogado == 'true') {
+
+            axios.get('https://express-back-end-1.herokuapp.com/user', {
+                params: {
+                    user_email: isUsuario,
+                    user_password: isSenha
+                }
+            })
+            .then(() => {
+                Navigate('/panel')
+            })
+            .catch(() => {
+                Navigate('/')
+                //Navigate(`/error/${error}\n${error.response.data.message}`);
+            })
+        }
+
+    }, [])
+
+    const [login, setlogin] = useState<any>(Login);
+    const [remenber, setRemenber] = useState<any>(false);
+
+    function onChange(event: any) {
+
+        const { name, value } = event.target;
+
+        setlogin({ ...login, [name]: value });
     }
 
-    function onSubmit (event : any) {
+    function onSubmit(event: any) {
         event.preventDefault();
 
-        let params = login
-        
+        let params = login;
+        let isLogin = remenber;
+
+        console.log(params, `logado ${isLogin}`)
+
         axios.get('https://express-back-end-1.herokuapp.com/user', {
             params: {
                 user_email: params.user_email,
                 user_password: params.user_password
             }
         })
-        .then((response) => {
-            
-            if(response) {
-                
-                localStorage.setItem('user_name', `${response.data.user_name} ${response.data.user_lastname}`)
-                localStorage.setItem('user_email', response.data.user_email)
-                localStorage.setItem('user_password', response.data.user_password)
-    
-                Navigate(`/panel`)
-            } 
-        })
-        .catch((error) => {
-            Navigate(`/error/${error}\n${error.response.data.message}`)
-        })
+            .then((response) => {
+
+                if (response) {
+
+                    localStorage.setItem('user_name', `${response.data.user_name} ${response.data.user_lastname}`);
+                    localStorage.setItem('user_email', response.data.user_email);
+                    localStorage.setItem('user_password', response.data.user_password);
+                    localStorage.setItem('user_remenber', `${isLogin}`);
+
+                    notifySucess();
+
+                    setTimeout(() => {
+                        Navigate(`/panel`);
+                    }, 3000);
+
+                }
+            })
+            .catch((error) => {
+
+                notifyError();
+
+                //Navigate(`/error/${error}\n${error.response.data.message}`);
+            })
 
     }
 
     return (
-        
-        <div style={{ display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white'}}>
-    
+
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', minHeight: '100vh', backgroundColor: '#06283D', color: 'white' }}>
+
             <Container className="form-signin w-100 m-auto gap-2" style={{ backgroundColor: '#06283D' }}>
-            <form onSubmit={onSubmit}>
-                
-                <img src={Logo} alt="" width={'25%'}/>
-                
-                <h1 className="h3 mb-3 fw-normal">Por favor faça o login</h1>
-            
-                <div className="form-floating my-1">
-                <input name="user_email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com"/>
-                <label style={{ color: 'black' }} htmlFor="floatingInput">Email address</label>
-                </div>
-                
-                <div className="form-floating my-1">
-                <input name="user_password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password"/>
-                <label style={{ color: 'black' }} htmlFor="floatingPassword">Password</label>
-                </div>
-            
-                <div className="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"/> Lembrar me
-                </label>
-                </div>
-                <button className="w-100 btn btn-lg btn-primary my-1" type="submit">Acessar</button>
-                <Link to={'/register'}>
-                    <button className="w-100 btn btn-lg btn-primary my-1">Cadastrar-se</button>
-                </Link>
-            </form>
+                <form onSubmit={onSubmit}>
+
+                    <img src={Logo} alt="" width={'25%'} />
+
+                    <h1 className="h3 mb-3 fw-normal">Por favor faça o login</h1>
+
+                    <div className="form-floating my-1">
+                        <input name="user_email" type="email" onChange={onChange} className="form-control" id="floatingInput" placeholder="name@example.com" required />
+                        <label style={{ color: 'black' }} htmlFor="floatingInput">Email</label>
+                    </div>
+
+                    <div className="form-floating my-1">
+                        <input name="user_password" type="password" onChange={onChange} className="form-control" id="floatingPassword" placeholder="Password" required />
+                        <label style={{ color: 'black' }} htmlFor="floatingPassword">Senha</label>
+                    </div>
+
+                    <div className="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="remenber" onClick={(() => {
+                                setRemenber(!remenber)
+                            })} /> Lembrar me
+                        </label>
+                    </div>
+                    <button className="w-100 btn btn-lg btn-primary my-1" type="submit">Acessar</button>
+                    <Link to={'/register'}>
+                        <button className="w-100 btn btn-lg btn-primary my-1">Cadastrar-se</button>
+                    </Link>
+                </form>
             </Container>
-        
+            <Toaster />
         </div>
     )
 }

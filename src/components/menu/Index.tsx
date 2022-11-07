@@ -1,5 +1,5 @@
-import "react";
 import { Link } from "react-router-dom"
+import Auth from "../../utils/Auth";
 import Logo from "../../assets/logo2.png"
 import { Container, Button, Tooltip, Divider} from "@mui/material"
 import IconDash from "@mui/icons-material/Dashboard"
@@ -8,6 +8,8 @@ import IconPackages from "@mui/icons-material/Unarchive"
 import IconLogout from "@mui/icons-material/Logout"
 
 export default function MenuTop() {
+
+    Auth();
 
     function clearUser() {
         localStorage.clear()

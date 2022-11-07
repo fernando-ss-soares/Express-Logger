@@ -95,7 +95,7 @@ export default function Perfil() {
 
                                 <div className="col-12">
                                     <label htmlFor="email" className="form-label">CPF</label>
-                                    <input type="email" className="form-control" id="email" placeholder="" name="user_email" disabled readOnly defaultValue={viewUser.user_email} />
+                                    <input type="email" className="form-control" id="email" placeholder="" name="user_email" disabled readOnly defaultValue={viewUser.user_cpf} />
                                     <div className="invalid-feedback">
                                         Please enter a valid email address htmlFor shipping updates.
                                     </div>
