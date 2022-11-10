@@ -3,10 +3,15 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Container } from "@mui/material"
 import { useState, useEffect } from "react"
 import axios from "axios"
-
 import Logo from "../../assets/logo1.png"
 
 export default function Login() {
+
+    const Login: any = { user_email: '', user_password: '' }
+
+    const Navigate = useNavigate();
+    const [login, setlogin] = useState<any>(Login);
+    const [remenber, setRemenber] = useState<any>(false);
 
     const notifySucess = () => toast.success('Login efetuado com sucesso!', {
         "duration": 4000,
@@ -18,17 +23,8 @@ export default function Login() {
         "position": "top-right"
     });
 
-    const Login: any = {
-        user_email: '',
-        user_password: ''
-    }
-
-    let Navigate = useNavigate();
-
     useEffect(() => {
-        let isLogado = localStorage.getItem('user_remenber');
-        let isUsuario = localStorage.getItem('user_email');
-        let isSenha = localStorage.getItem('user_password');
+        const isLogado = localStorage.getItem('user_remenber'); const isUsuario = localStorage.getItem('user_email'); const isSenha = localStorage.getItem('user_password');
 
         if (isLogado == 'true') {
 
@@ -38,22 +34,17 @@ export default function Login() {
                     user_password: isSenha
                 }
             })
-            .then(() => {
-                Navigate('/panel')
-            })
-            .catch(() => {
-                Navigate('/')
-                //Navigate(`/error/${error}\n${error.response.data.message}`);
-            })
+                .then(() => {
+                    Navigate('/panel')
+                })
+                .catch(() => {
+                    Navigate('/')
+                })
         }
 
     }, [])
 
-    const [login, setlogin] = useState<any>(Login);
-    const [remenber, setRemenber] = useState<any>(false);
-
     function onChange(event: any) {
-
         const { name, value } = event.target;
 
         setlogin({ ...login, [name]: value });
@@ -62,10 +53,7 @@ export default function Login() {
     function onSubmit(event: any) {
         event.preventDefault();
 
-        let params = login;
-        let isLogin = remenber;
-
-        console.log(params, `logado ${isLogin}`)
+        const params = login; const isLogin = remenber;
 
         axios.get('https://express-back-end-1.herokuapp.com/user', {
             params: {
@@ -74,29 +62,20 @@ export default function Login() {
             }
         })
             .then((response) => {
-
                 if (response) {
-
                     localStorage.setItem('user_name', `${response.data.user_name} ${response.data.user_lastname}`);
                     localStorage.setItem('user_email', response.data.user_email);
                     localStorage.setItem('user_password', response.data.user_password);
                     localStorage.setItem('user_remenber', `${isLogin}`);
-
                     notifySucess();
-
                     setTimeout(() => {
                         Navigate(`/panel`);
                     }, 3000);
-
                 }
             })
             .catch((error) => {
-
                 notifyError();
-
-                //Navigate(`/error/${error}\n${error.response.data.message}`);
             })
-
     }
 
     return (

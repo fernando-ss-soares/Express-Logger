@@ -22,22 +22,22 @@ export default function CriarPedido() {
 
                             <div className="col-sm-6">
                                 <label htmlFor="lastName" className="form-label">Status</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="" value={"Aguardando Recebimento"} disabled readOnly/>
+                                <input type="text" className="form-control" id="lastName" placeholder="" value={"Aguardando Recebimento"} disabled readOnly />
                                 <div className="invalid-feedback">
                                     Valid last name is required.
                                 </div>
                             </div>
 
                             <div className="col-12">
-                              <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrição Produto</label>
-                              <textarea className="form-control" id="exampleFormControlTextarea1" rows={2}></textarea>
+                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrição Produto</label>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows={2}></textarea>
                             </div>
 
                             <div className="col-12">
                                 <label htmlFor="username" className="form-label">Código do Pedido</label>
                                 <div className="input-group has-validation">
                                     <span className="input-group-text">@</span>
-                                    <input type="text" className="form-control" id="username" placeholder="P00-000000000" disabled readOnly/>
+                                    <input type="text" className="form-control" id="username" placeholder="P00-000000000" disabled readOnly />
                                     <div className="invalid-feedback">
                                         Your username is required.
                                     </div>
@@ -47,7 +47,7 @@ export default function CriarPedido() {
                             <div className="col-12">
                                 <label htmlFor="address" className="form-label">Endereço</label>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option>Open this select menu</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>

@@ -7,30 +7,15 @@ export default function Perfil() {
 
     const [loading, setLoading] = useState(true)
 
-    const userLoad = {
-        user_name: "",
-        user_lastname: "",
-        user_cpf: "",
-        user_id: "",
-        user_email: "",
-        user_address: "",
-    }
+    const userLoad = { user_name: "", user_lastname: "", user_cpf: "", user_id: "", user_email: "", user_address: "" }
 
     const [viewUser, setViewUser] = useState(userLoad)
 
-    const userEdit = {
-        user_name: viewUser.user_name,
-        user_lastname: viewUser.user_name,
-        user_cpf: viewUser.user_name,
-        user_id: viewUser.user_name,
-        user_email: viewUser.user_name,
-        user_address: viewUser.user_name,
-    }
+    const userEdit = { user_name: viewUser.user_name, user_lastname: viewUser.user_name, user_cpf: viewUser.user_name, user_id: viewUser.user_name, user_email: viewUser.user_name, user_address: viewUser.user_name }
 
     const [editUser, setEditUser] = useState(userEdit)
 
     useEffect(() => {
-
         const params: any = {
             user_email: localStorage.getItem('user_email'),
             user_password: localStorage.getItem('user_password')

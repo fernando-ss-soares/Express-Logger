@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom"
-import ContentLoader from "react-content-loader"
 import IconSegure from "@mui/icons-material/VpnLock"
 import IconShipping from "@mui/icons-material/LocalShipping"
 import IconOrder from "@mui/icons-material/Web"
 import IconSupport from "@mui/icons-material/Groups"
-import { useState } from "react"
 
 interface NewCardPanel {
     nomeCompleto: String

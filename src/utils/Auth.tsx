@@ -3,10 +3,9 @@ import axios from "axios"
 
 export default function Auth() {
 
-    let Navigate = useNavigate();
+    const Navigate = useNavigate();
 
-    let isUsuario = localStorage.getItem('user_email');
-    let isSenha = localStorage.getItem('user_password');
+    const isUsuario = localStorage.getItem('user_email'); const isSenha = localStorage.getItem('user_password');
 
     axios.get('https://express-back-end-1.herokuapp.com/user', {
         params: {
