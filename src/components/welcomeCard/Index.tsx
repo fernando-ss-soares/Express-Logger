@@ -1,12 +1,12 @@
-import Load from "./Load"
+import Panel from "./Load";
 
 export default function NewCardPanel() {
     
-    const user_name = localStorage.getItem('user_name')
+    const user_name = localStorage.getItem('user_name');
 
     return (
         <>
-            <Load nomeCompleto={String(user_name)}/>
+            <Panel nomeCompleto={String(user_name)}/>
         </>
     )
 }

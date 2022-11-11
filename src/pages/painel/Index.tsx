@@ -5,7 +5,7 @@ import BounceLoader from "react-spinners/BounceLoader";
 
 export default function Painel() {
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     setTimeout(() => {
         setLoading(false)

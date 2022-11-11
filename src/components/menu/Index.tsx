@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Auth from "../../utils/Auth";
-import Logo from "../../assets/logo2.png"
+import Logo from "../../assets/logo.png"
 import { Container, Button, Tooltip, Divider } from "@mui/material"
 import IconDash from "@mui/icons-material/Dashboard"
 import IconSetting from "@mui/icons-material/ManageAccounts"

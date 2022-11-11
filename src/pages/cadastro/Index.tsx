@@ -1,18 +1,18 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function CadastroUsuario() {
 
-    const Register: any = { user_name: '', user_lastname: '', user_cpf: '', user_address: '', user_email: '', user_password: '' }
-    const [register, setRegister] = useState<object>(Register)
+    const Register: any = { user_name: '', user_lastname: '', user_cpf: '', user_address: '', user_email: '', user_password: '' };
+    const [register, setRegister] = useState<object>(Register);
     const Navigate = useNavigate();
 
     function onChange(event: any) {
-        const { name, value } = event.target
+        const { name, value } = event.target;
 
         setRegister({ ...register, [name]: value })
-    }
+    };
 
     function onSubmit(event: any) {
         event.preventDefault();
@@ -21,10 +21,9 @@ export default function CadastroUsuario() {
             .then(() => {
                 Navigate(`/login`)
             })
-            .catch((error) => {
-                Navigate(`/error/${error}\n${error.response.data.message}`)
+            .catch(() => {
             })
-    }
+    };
 
     return (
 
